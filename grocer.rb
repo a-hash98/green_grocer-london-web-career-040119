@@ -15,5 +15,15 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  # code here
+  if cart.length != 0
+    apply_coupons(cart, coupons)
+    apply_clearance(cart)
+  end
+  cost = 0
+  for i in cart
+    cost = cost+i[:price].to_i
+  end
+  if cost > 100
+    cost = cost*0.9
+  end
 end
