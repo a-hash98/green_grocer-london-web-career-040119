@@ -7,7 +7,11 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  # code here
+  for i in cart
+    current_price = i[:price].to_i
+    i[:price] = 0.8*current_price
+  end
+  return cart
 end
 
 def checkout(cart, coupons)
